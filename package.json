@@ -1,0 +1,47 @@
+{
+  "name": "counting-words",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./src/electron.js",
+  "scripts": {
+    "validate": "svelte-check",
+    "svelte-dev": "rollup -c -w",
+    "svelte-build": "rollup -c",
+    "serve": "sirv public",
+    "dev": "run-p svelte-dev start",
+    "build": "run-s svelte-build",
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-typescript": "^8.0.0",
+    "@tsconfig/svelte": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.17.0",
+    "autoprefixer": "^10.2.5",
+    "eslint": "^7.21.0",
+    "postcss": "^8.2.8",
+    "postcss-load-config": "^3.0.1",
+    "rollup": "^2.3.4",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^3.0.0",
+    "svelte-check": "^1.0.0",
+    "svelte-preprocess": "^4.6.9",
+    "tailwindcss": "^2.0.3",
+    "tslib": "^2.0.0",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^12.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-custom-properties": "^11.0.0",
+    "postcss-import": "^14.0.0",
+    "postcss-nested": "^5.0.5",
+    "sirv-cli": "^1.0.0"
+  }
+}
