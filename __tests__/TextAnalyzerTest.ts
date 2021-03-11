@@ -35,6 +35,6 @@ test('CalculateMostFrequentNWords returns an array of the n most frequent words'
     expect(threeMostFrequentWords[0].getFrequency()).toBe(7);
     expect(threeMostFrequentWords[1].getWord()).toBe("it");
     expect(threeMostFrequentWords[1].getFrequency()).toBe(4);
-    expect(threeMostFrequentWords[2].getWord()).toBe("hElLo");
+    expect(threeMostFrequentWords[2].getWord()).toBe("hello");
     expect(threeMostFrequentWords[2].getFrequency()).toBe(3);
 });
