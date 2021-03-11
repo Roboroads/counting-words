@@ -3,7 +3,9 @@ import type {WordFrequency} from "../types/WordFrequency";
 
 export class TextAnalyzer implements WordFrequencyAnalyzer {
     calculateFrequencyForWord(text: string, word: string): number {
-        return 0;
+        return this.tokenizeText(text)
+            .filter((token) => token == word.toLowerCase())
+            .length;
     }
 
     calculateHighestFrequency(text: string): number {
