@@ -15,6 +15,6 @@ export class TextAnalyzer implements WordFrequencyAnalyzer {
     }
 
     tokenizeText(text: string): string[] {
-        return [];
+        return text.toLowerCase().match(/[a-z]+/g);
     }
 }
