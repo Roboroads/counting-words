@@ -10,17 +10,24 @@
     "serve": "sirv public",
     "dev": "run-p svelte-dev start",
     "build": "run-s svelte-build",
-    "start": "electron ."
+    "start": "electron .",
+    "test": "jest"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-typescript": "^7.13.0",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-typescript": "^8.0.0",
     "@tsconfig/svelte": "^1.0.0",
+    "@types/jest": "^26.0.20",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
     "autoprefixer": "^10.2.5",
+    "babel-jest": "^26.6.3",
     "eslint": "^7.21.0",
+    "jest": "^26.6.3",
     "postcss": "^8.2.8",
     "postcss-load-config": "^3.0.1",
     "rollup": "^2.3.4",
@@ -32,6 +39,7 @@
     "svelte-check": "^1.0.0",
     "svelte-preprocess": "^4.6.9",
     "tailwindcss": "^2.0.3",
+    "ts-node": "^9.1.1",
     "tslib": "^2.0.0",
     "typescript": "^4.2.3"
   },
