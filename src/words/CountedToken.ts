@@ -1,6 +1,6 @@
-import type {WordFrequency} from "../types/WordFrequency";
+import type WordFrequency from "../types/WordFrequency";
 
-export class CountedToken implements WordFrequency {
+export default class CountedToken implements WordFrequency {
     word: string;
     frequency: number;
 

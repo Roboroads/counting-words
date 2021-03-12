@@ -1,4 +1,4 @@
-export interface WordFrequency {
+export default interface WordFrequency {
     getWord(): string;
     getFrequency(): number;
 }

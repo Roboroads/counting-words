@@ -1,6 +1,6 @@
-import type {WordFrequency} from "./WordFrequency";
+import type WordFrequency from "./WordFrequency";
 
-export interface WordFrequencyAnalyzer {
+export default  interface WordFrequencyAnalyzer {
     calculateHighestFrequency(text: string): number;
     calculateFrequencyForWord (text: string, word: string): number;
     calculateMostFrequentNWords (text: string, n: number): WordFrequency[];

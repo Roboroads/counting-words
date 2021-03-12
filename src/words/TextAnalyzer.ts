@@ -1,12 +1,12 @@
-import type {WordFrequencyAnalyzer} from "../types/WordFrequencyAnalyzer";
-import type {WordFrequency} from "../types/WordFrequency";
-import {CountedToken} from "./CountedToken";
+import type WordFrequencyAnalyzer from "../types/WordFrequencyAnalyzer";
+import type WordFrequency from "../types/WordFrequency";
+import CountedToken from "./CountedToken";
 
 interface TokenTally {
     [key: string]: number
 }
 
-export class TextAnalyzer implements WordFrequencyAnalyzer {
+export default class TextAnalyzer implements WordFrequencyAnalyzer {
     calculateFrequencyForWord(text: string, word: string): number {
         return this.tokenizeText(text)
             .filter((token) => token == word.toLowerCase())
@@ -18,6 +18,14 @@ export class TextAnalyzer implements WordFrequencyAnalyzer {
     }
 
     calculateMostFrequentNWords(text: string, n: number): WordFrequency[] {
+        return this.calculateMostFrequentWords(text).slice(0, n);
+    }
+
+    calculateMostFrequentWords(text: string): WordFrequency[] {
+        if(text.length < 1) {
+            return [];
+        }
+
         const tokenTally: TokenTally = {};
 
         this.tokenizeText(text)
@@ -31,8 +39,14 @@ export class TextAnalyzer implements WordFrequencyAnalyzer {
 
         return Object.entries(tokenTally)
             .map((wordCount) => new CountedToken(...wordCount))
-            .sort((a,b) => b.getFrequency() - a.getFrequency())
-            .slice(0, n);
+            .sort((a,b) => {
+                const sortVertict = b.getFrequency() - a.getFrequency();
+                if(sortVertict == 0) {
+                    return a.getWord().localeCompare(b.getWord());
+                }
+
+                return sortVertict;
+            });
     }
 
     tokenizeText(text: string): string[] {

@@ -1,4 +1,4 @@
-import {TextAnalyzer} from "../src/words/TextAnalyzer";
+import TextAnalyzer from "../src/words/TextAnalyzer";
 
 test('tokenizeText returns array of words', () => {
     const analyzer = new TextAnalyzer();
@@ -25,12 +25,32 @@ test('CalculateFrequencyForWord returns frequency for word', () => {
     expect(analyzer.calculateFrequencyForWord(text, "it")).toBe(4);
 });
 
+test('CalculateMostFrequentWords returns an array of all the words with frequency', () => {
+    const analyzer = new TextAnalyzer();
+    const text = "The the world hello, the it world it the, hello the IT the it, the world sais hello!";
+
+    const threeMostFrequentWords = analyzer.calculateMostFrequentWords(text);
+
+    expect(threeMostFrequentWords).toHaveLength(5);
+    expect(threeMostFrequentWords[0].getWord()).toBe("the");
+    expect(threeMostFrequentWords[0].getFrequency()).toBe(7);
+    expect(threeMostFrequentWords[1].getWord()).toBe("it");
+    expect(threeMostFrequentWords[1].getFrequency()).toBe(4);
+    expect(threeMostFrequentWords[2].getWord()).toBe("hello");
+    expect(threeMostFrequentWords[2].getFrequency()).toBe(3);
+    expect(threeMostFrequentWords[3].getWord()).toBe("world");
+    expect(threeMostFrequentWords[3].getFrequency()).toBe(3);
+    expect(threeMostFrequentWords[4].getWord()).toBe("sais");
+    expect(threeMostFrequentWords[4].getFrequency()).toBe(1);
+});
+
 test('CalculateMostFrequentNWords returns an array of the n most frequent words', () => {
     const analyzer = new TextAnalyzer();
     const text = "The the world hello, the it it the, hello the IT the it, the world sais hello!";
 
     const threeMostFrequentWords = analyzer.calculateMostFrequentNWords(text, 3);
 
+    expect(threeMostFrequentWords).toHaveLength(3);
     expect(threeMostFrequentWords[0].getWord()).toBe("the");
     expect(threeMostFrequentWords[0].getFrequency()).toBe(7);
     expect(threeMostFrequentWords[1].getWord()).toBe("it");
