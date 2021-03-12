@@ -9,10 +9,9 @@ const openWindow = () => {
         height: 680,
     });
 
-    const mode = process.env.NODE_ENV;
-    const url = mode === "production"
-        ? `file://${path.join(__dirname, "../public/index.html")}`
-        : "http://localhost:5000";
+    const url = process.env.APP_IS_DEV == "true"
+        ? "http://localhost:5000"
+        : `file://${path.join(__dirname, "../public/index.html")}`;
 
     window.loadURL(url);
     window.on("closed", () => {
