@@ -6,7 +6,19 @@
   "description": "A dead simple - ahem, over-engineered - program that will count words and give you 𝓯𝓪𝓷𝓬𝔂 stats about them.",
   "author": "Robbin \"Roboroads\" Schepers <robbin@deschepers.nl>",
   "build": {
-    "appId": "nl.deschepers.counting-words"
+    "appId": "nl.deschepers.counting-words",
+    "productName": "Counting Words",
+    "artifactName": "CountingWords-${platform}-${version}.${ext}",
+    "mac": {
+      "target": "zip",
+      "category": "nl.deschepers.counting-words"
+    },
+    "win": {
+      "target": "portable"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
   },
   "scripts": {
     "validate": "svelte-check",
@@ -39,7 +51,7 @@
     "babel-jest": "^26.6.3",
     "carbon-components": "^10.30.0",
     "cross-env": "^7.0.3",
-    "d3": "5.x",
+    "d3": "^5.14.2",
     "electron": "^12.0.1",
     "electron-builder": "^22.10.5",
     "eslint": "^7.21.0",
