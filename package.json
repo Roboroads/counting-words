@@ -1,6 +1,6 @@
 {
   "name": "counting-words",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "main": "./src/electron.js",
   "description": "A dead simple - ahem, over-engineered - program that will count words and give you 𝓯𝓪𝓷𝓬𝔂 stats about them.",
