@@ -5,6 +5,12 @@
   "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
 
   "compilerOptions": {
-    "types": ["jest"]
+    "types": [
+      "jest"
+    ],
+    "typeRoots": [
+      "./src/types/*"
+    ],
+    "sourceMap": true,
   }
 }

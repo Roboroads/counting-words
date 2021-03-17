@@ -1,10 +1,4 @@
-import type WordFrequencyAnalyzer from "../types/WordFrequencyAnalyzer";
-import type WordFrequency from "../types/WordFrequency";
 import CountedToken from "./CountedToken";
-
-interface TokenTally {
-    [key: string]: number
-}
 
 export default class TextAnalyzer implements WordFrequencyAnalyzer {
     calculateFrequencyForWord(text: string, word: string): number {

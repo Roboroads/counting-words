@@ -1,5 +1,3 @@
-import type WordFrequency from "../types/WordFrequency";
-
 export default class CountedToken implements WordFrequency {
     word: string;
     frequency: number;

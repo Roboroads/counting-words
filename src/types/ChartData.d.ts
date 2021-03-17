@@ -1,4 +1,4 @@
-export default interface ChartData {
+interface ChartData {
     value: number;
     group: string;
 }
