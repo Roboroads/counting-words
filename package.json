@@ -22,14 +22,14 @@
   },
   "scripts": {
     "validate": "svelte-check",
-    "rollup-dev": "rollup -c -w",
-    "rollup-build": "rollup -c",
-    "tailwind-dev": "postcss src/app/style/tailwind.pcss -o public/build/tailwind.css -w",
-    "tailwind-build": "cross-env NODE_ENV=production postcss src/app/style/tailwind.pcss -o public/build/tailwind.css",
+    "dev:rollup": "rollup -c -w",
+    "build:rollup": "rollup -c",
+    "dev:tailwind": "postcss src/app/style/tailwind.pcss -o public/build/tailwind.css -w",
+    "build:tailwind": "cross-env NODE_ENV=production postcss src/app/style/tailwind.pcss -o public/build/tailwind.css",
     "serve": "sirv public",
-    "dev": "run-p rollup-dev tailwind-dev start-dev",
-    "build": "run-s rollup-build tailwind-build",
-    "start-dev": "cross-env APP_IS_DEV=true electron .",
+    "dev": "run-p dev:rollup dev:tailwind dev:start",
+    "build": "run-s build:rollup build:tailwind",
+    "dev:start": "wait-on http-get://localhost:5000 && cross-env APP_IS_DEV=true electron .",
     "start": "electron .",
     "test": "jest",
     "clean": "rm -r dist; rm -r public"
@@ -77,5 +77,8 @@
     "ts-node": "^9.1.1",
     "tslib": "^2.0.0",
     "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "wait-on": "^5.2.1"
   }
 }
